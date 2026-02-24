@@ -4,8 +4,8 @@ const TareasModule = (() => {
         const estado = DataManager.cargarEstado();
         let html = '<h2>Tareas Paso a Paso</h2>';
 
-        // Formulario sin fondo adicional
-        html += '<div class="nueva-tarea-form" style="margin-bottom:20px;">';
+        // --- Formulario para nueva tarea (sin fondo extra) ---
+        html += '<div style="margin-bottom:20px;">';
         html += '<input type="text" id="nuevaTarea" placeholder="Nombre de la tarea" style="margin-bottom:10px;">';
         html += '<div style="display:flex; gap:10px; margin-bottom:10px; flex-wrap:wrap;">';
         html += '<input type="date" id="nuevaTareaFecha" style="flex:1; min-width:140px;">';
@@ -17,12 +17,13 @@ const TareasModule = (() => {
         html += '<div id="listaTareas">';
 
         estado.tareas.forEach(t => {
+            // --- Formatear fecha/hora si existe ---
             let fechaHoraTexto = '';
             if (t.fechaLimite) {
                 try {
                     const fecha = new Date(t.fechaLimite);
                     fechaHoraTexto = `📅 ${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-                    
+
                     const ahora = new Date();
                     const diffHoras = (fecha - ahora) / (1000 * 60 * 60);
                     if (diffHoras < 24 && diffHoras > 0) {
@@ -56,7 +57,7 @@ const TareasModule = (() => {
         html += '</div>';
         document.getElementById('app').innerHTML = html;
 
-        // Agregar tarea
+        // --- Evento agregar tarea (con fecha/hora) ---
         document.getElementById('agregarTarea')?.addEventListener('click', () => {
             const titulo = document.getElementById('nuevaTarea').value.trim();
             const fecha = document.getElementById('nuevaTareaFecha').value;
@@ -84,7 +85,7 @@ const TareasModule = (() => {
             render();
         });
 
-        // Marcar paso
+        // --- Marcar paso completado ---
         document.querySelectorAll('.paso').forEach(cb => {
             cb.addEventListener('change', (e) => {
                 const tareaId = Number(e.target.dataset.tarea);
@@ -97,7 +98,7 @@ const TareasModule = (() => {
             });
         });
 
-        // Agregar paso
+        // --- Agregar paso a tarea existente ---
         document.querySelectorAll('.agregarPaso').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const tareaId = Number(e.target.dataset.id);
@@ -111,7 +112,7 @@ const TareasModule = (() => {
             });
         });
 
-        // Eliminar tarea
+        // --- Eliminar tarea completa ---
         document.querySelectorAll('.eliminarTarea').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = Number(e.target.dataset.id);
@@ -123,4 +124,5 @@ const TareasModule = (() => {
     };
     return { render };
 })();
+
 
