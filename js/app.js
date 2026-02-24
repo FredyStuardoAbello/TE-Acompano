@@ -1,19 +1,11 @@
 // app.js
 const App = (() => {
     const init = () => {
-        // Crear la estructura del header si no existe (para botones)
         crearEstructuraHeader();
-
-        // Configurar tema guardado
         initTheme();
-
-        // Agregar botón de ayuda
         agregarBotonAyuda();
-
-        // Agregar botón de cambio de tema
         agregarBotonTema();
 
-        // Verificar onboarding
         if (typeof OnboardingModule !== 'undefined') {
             OnboardingModule.iniciar(() => {
                 configurarEventos();
@@ -28,33 +20,26 @@ const App = (() => {
     const crearEstructuraHeader = () => {
         const header = document.querySelector('header');
         if (!header) return;
-
-        // Si ya tiene la estructura, no hacer nada
         if (header.querySelector('.header-top')) return;
 
         const h1 = header.querySelector('h1');
         const nav = header.querySelector('nav');
 
-        // Crear contenedor superior
         const headerTop = document.createElement('div');
         headerTop.className = 'header-top';
 
-        // Mover el h1 al headerTop
         if (h1) {
             headerTop.appendChild(h1.cloneNode(true));
             h1.remove();
         }
 
-        // Crear contenedor de botones
         const headerButtons = document.createElement('div');
         headerButtons.className = 'header-buttons';
         headerButtons.id = 'header-buttons';
         headerTop.appendChild(headerButtons);
 
-        // Insertar headerTop al inicio del header
         header.insertBefore(headerTop, header.firstChild);
 
-        // Reinsertar nav si existe
         if (nav) {
             header.appendChild(nav);
         }
@@ -70,6 +55,16 @@ const App = (() => {
     };
 
     const cargarModulo = (modulo) => {
+        // Quitar clase activa de todos los botones
+        document.querySelectorAll('nav button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Añadir clase activa al botón correspondiente
+        const botonActivo = document.querySelector(`nav button[data-module="${modulo}"]`);
+        if (botonActivo) {
+            botonActivo.classList.add('active');
+        }
+
         switch(modulo) {
             case 'rutinas': RutinasModule.render(); break;
             case 'tareas': TareasModule.render(); break;
