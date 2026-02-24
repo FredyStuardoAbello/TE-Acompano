@@ -117,3 +117,4 @@ const EmocionesModule = (() => {
     // Exponer solo el método render
     return { render };
 })();
+
