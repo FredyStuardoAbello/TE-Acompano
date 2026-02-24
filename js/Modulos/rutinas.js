@@ -1,5 +1,5 @@
 // rutinas.js
-const RutinasModule = (() => {
+const rutinasModule = (() => {
     const render = () => {
         const estado = DataManager.cargarEstado();
         let html = '<h2>Rutinas Diarias</h2>';
@@ -66,6 +66,7 @@ const RutinasModule = (() => {
     };
     return { render };
 })();
+
 
 
 
