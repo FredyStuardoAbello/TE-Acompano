@@ -107,6 +107,15 @@ nav button:hover {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* ===== BOTÓN ACTIVO ===== */
+nav button.active {
+    background-color: var(--color-acento);
+    color: white;
+    border-color: var(--color-acento);
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 /* ===== CONTENEDOR PRINCIPAL ===== */
 main {
     flex: 1;
@@ -137,7 +146,7 @@ h3 {
     opacity: 0.9;
 }
 
-/* ===== FORMULARIOS ===== */
+/* ===== FORMULARIOS MEJORADOS ===== */
 input, textarea, button {
     font-family: inherit;
     font-size: 16px;
@@ -147,16 +156,19 @@ input, textarea {
     width: 100%;
     padding: 14px;
     margin-bottom: 18px;
-    border: 1px solid var(--color-borde);
+    border: 2px solid var(--color-borde);     /* Borde más grueso */
     border-radius: 8px;
-    background-color: white;
-    transition: border 0.2s;
+    background-color: #ffffff;                /* Fondo blanco puro */
+    color: var(--color-texto);
+    transition: all 0.2s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02); /* Sombra interior */
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: var(--color-boton);
-    box-shadow: 0 0 0 3px rgba(44, 95, 138, 0.1);
+    box-shadow: 0 0 0 3px rgba(44, 95, 138, 0.2), inset 0 2px 4px rgba(0,0,0,0.05);
+    background-color: #ffffff;
 }
 
 button {
@@ -590,6 +602,12 @@ body.dark-theme nav button {
     color: #ffffff;
 }
 
+body.dark-theme nav button.active {
+    background-color: var(--color-acento);
+    color: white;
+    border-color: var(--color-acento);
+}
+
 body.dark-theme main {
     background-color: var(--color-tarjeta);
 }
@@ -603,11 +621,20 @@ body.dark-theme label {
     color: var(--color-texto);
 }
 
+/* Inputs en tema oscuro */
 body.dark-theme input,
 body.dark-theme textarea {
     background-color: #2a3649;
-    border-color: var(--color-borde);
+    border-color: #4a6070;
     color: #ffffff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme input:focus,
+body.dark-theme textarea:focus {
+    border-color: var(--color-boton);
+    box-shadow: 0 0 0 3px rgba(58, 124, 165, 0.3), inset 0 2px 4px rgba(0,0,0,0.3);
+    background-color: #2a3649;
 }
 
 body.dark-theme .tarea,
