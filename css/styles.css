@@ -1,0 +1,728 @@
+/* ===== ESTILOS GENERALES - VERSIÓN ADULTA PROFESIONAL ===== */
+:root {
+    --color-fondo: #eef2f5;
+    --color-encabezado: #1e3a5f;
+    --color-boton: #2c5f8a;
+    --color-boton-hover: #1f4a6f;
+    --color-acento: #2e7d6e;
+    --color-texto: #2d3e50;
+    --color-borde: #cad1d9;
+    --color-tarjeta: #ffffff;
+    --sombra: 0 6px 18px rgba(0, 0, 0, 0.08);
+    --radio-borde: 10px;
+    --espaciado: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    padding: var(--espaciado);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ENCABEZADO CON FLEXBOX ===== */
+header {
+    background-color: var(--color-encabezado);
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--radio-borde) var(--radio-borde) 0 0;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.header-top h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-header {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(4px);
+}
+
+.btn-header:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-color: white;
+    transform: translateY(-1px);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav button {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+}
+
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+main {
+    flex: 1;
+    background-color: var(--color-tarjeta);
+    border-radius: 0 0 var(--radio-borde) var(--radio-borde);
+    padding: var(--espaciado);
+    box-shadow: var(--sombra);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ===== TÍTULOS ===== */
+h2 {
+    color: var(--color-encabezado);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+h3 {
+    margin: 16px 0 12px;
+    color: var(--color-texto);
+    font-weight: 500;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* ===== FORMULARIOS ===== */
+input, textarea, button {
+    font-family: inherit;
+    font-size: 16px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: white;
+    transition: border 0.2s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-boton);
+    box-shadow: 0 0 0 3px rgba(44, 95, 138, 0.1);
+}
+
+button {
+    background-color: var(--color-boton);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    min-height: 46px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: var(--color-boton-hover);
+}
+
+/* ===== MÓDULO RUTINAS ===== */
+#listaRutinas {
+    list-style: none;
+    margin-top: 20px;
+}
+
+#listaRutinas li {
+    background-color: #f9fbfd;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-left: 4px solid var(--color-acento);
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+#listaRutinas li span {
+    flex: 1;
+    word-break: break-word;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+#listaRutinas li button {
+    margin-left: auto;
+    background-color: #d32f2f;
+    color: white;
+    padding: 8px 16px;
+    min-height: 38px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#listaRutinas li button:hover {
+    background-color: #b71c1c;
+}
+
+/* ===== MÓDULO TAREAS ===== */
+.tarea {
+    background-color: #f9fbfd;
+    margin-bottom: 20px;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-acento);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.tarea h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--color-encabezado);
+}
+
+.tarea ul {
+    list-style: none;
+    margin: 16px 0;
+}
+
+.tarea li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+.tarea li input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--color-acento);
+}
+
+.tarea .agregarPaso {
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.tarea .eliminarTarea {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.tarea .agregarPaso:hover {
+    background-color: #1f5f55;
+}
+
+.tarea .eliminarTarea:hover {
+    background-color: #b71c1c;
+}
+
+/* ===== MÓDULO EMOCIONES ===== */
+.escala-emocional {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.emocion-btn {
+    flex: 1 1 140px;
+    background-color: #f9fbfd;
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    padding: 16px 10px;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    min-height: 70px;
+    border-radius: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+}
+
+.emocion-btn:hover {
+    background-color: var(--color-boton);
+    color: white;
+    border-color: var(--color-boton);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#estrategias, #historial {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f9fbfd;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+#estrategias ul, #historial ul {
+    list-style: none;
+    margin: 12px 0 0 20px;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+#estrategias li, #historial li {
+    padding: 6px 0;
+    position: relative;
+}
+
+#estrategias li::before, #historial li::before {
+    content: "•";
+    color: var(--color-boton);
+    font-weight: bold;
+    position: absolute;
+    left: -18px;
+    font-size: 1.5rem;
+    top: -2px;
+}
+
+#btn-borrar-historial {
+    margin-top: 10px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#btn-borrar-historial:hover {
+    background-color: #b71c1c;
+}
+
+/* ===== MÓDULO CAMBIOS ===== */
+.cambios-form {
+    background-color: #f9fbfd;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.cambios-form label {
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+#planesGuardados ul {
+    list-style: none;
+}
+
+#planesGuardados li {
+    background-color: #f9fbfd;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-boton);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+#planesGuardados li strong {
+    color: var(--color-encabezado);
+    font-weight: 600;
+}
+
+.eliminar-plan, #borrarTodosPlanes {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.eliminar-plan:hover, #borrarTodosPlanes:hover {
+    background-color: #b71c1c;
+}
+
+/* ===== ONBOARDING ===== */
+.onboarding-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 58, 95, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.onboarding-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.4s ease;
+}
+
+.onboarding-card h2 {
+    color: var(--color-encabezado);
+    margin-bottom: 1rem;
+    border-bottom: none;
+}
+
+.onboarding-card p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-texto);
+}
+
+.onboarding-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.onboarding-buttons button {
+    min-width: 150px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-boton);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-boton-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-encabezado);
+    border: 2px solid var(--color-borde) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-fondo);
+}
+
+.onboarding-tour {
+    background-color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.onboarding-tour h3 {
+    color: var(--color-encabezado);
+    margin-top: 0;
+}
+
+.onboarding-tour ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.onboarding-tour li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: #f9fbfd;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    border-left: 4px solid var(--color-acento);
+    color: var(--color-texto);
+}
+
+.onboarding-tour .emoji {
+    font-size: 1.5rem;
+    min-width: 40px;
+}
+
+.onboarding-tour .tour-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== PIE DE PÁGINA ===== */
+footer {
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    opacity: 0.7;
+    border-top: 1px solid var(--color-borde);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== TEMA OSCURO CON ALTO CONTRASTE ===== */
+body.dark-theme {
+    --color-fondo: #0f172a;
+    --color-encabezado: #0b1c2f;
+    --color-boton: #3a7ca5;
+    --color-boton-hover: #4f8fc0;
+    --color-acento: #6bb0a8;
+    --color-texto: #ffffff;
+    --color-borde: #2a4055;
+    --color-tarjeta: #1e2a3a;
+    --sombra: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme header {
+    background-color: var(--color-encabezado);
+}
+
+body.dark-theme .btn-header {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+body.dark-theme .btn-header:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+body.dark-theme nav button {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+body.dark-theme main {
+    background-color: var(--color-tarjeta);
+}
+
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p,
+body.dark-theme li,
+body.dark-theme span,
+body.dark-theme label {
+    color: var(--color-texto);
+}
+
+body.dark-theme input,
+body.dark-theme textarea {
+    background-color: #2a3649;
+    border-color: var(--color-borde);
+    color: #ffffff;
+}
+
+body.dark-theme .tarea,
+body.dark-theme #listaRutinas li,
+body.dark-theme #estrategias,
+body.dark-theme #historial,
+body.dark-theme .cambios-form,
+body.dark-theme #planesGuardados li,
+body.dark-theme .onboarding-card,
+body.dark-theme .onboarding-tour,
+body.dark-theme .onboarding-tour li {
+    background-color: #2a3649;
+    color: #ffffff;
+    border-color: var(--color-borde);
+}
+
+body.dark-theme .onboarding-card h2,
+body.dark-theme .onboarding-tour h3 {
+    color: #c0d8f0;
+}
+
+body.dark-theme .btn-secondary {
+    color: #c0d8f0;
+    border-color: #4a6070 !important;
+}
+
+body.dark-theme .btn-secondary:hover {
+    background-color: #2a4055;
+}
+
+body.dark-theme .emocion-btn {
+    background-color: #2a3b4e;
+    color: #ffffff;
+    border-color: #4a6070;
+}
+
+body.dark-theme .emocion-btn:hover {
+    background-color: var(--color-boton);
+    color: #ffffff;
+}
+
+body.dark-theme .tarea .agregarPaso,
+body.dark-theme .tarea .eliminarTarea,
+body.dark-theme #listaRutinas li button,
+body.dark-theme .eliminar-plan,
+body.dark-theme #btn-borrar-historial,
+body.dark-theme #borrarTodosPlanes {
+    background-color: #b71c1c;
+    color: white;
+}
+
+body.dark-theme footer {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    border-top-color: var(--color-borde);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .header-buttons {
+        justify-content: center;
+    }
+
+    nav button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+
+    .emocion-btn {
+        flex: 1 1 100%;
+    }
+
+    #listaRutinas li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #listaRutinas li button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .tarea li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarea button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .onboarding-buttons,
+    .tour-buttons {
+        flex-direction: column;
+    }
+
+    .onboarding-buttons button,
+    .tour-buttons button {
+        width: 100%;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}
