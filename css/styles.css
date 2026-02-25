@@ -842,3 +842,33 @@ body.dark-theme footer {
         font-size: 0.8rem;
     }
 }
+
+
+/* ===== CORRECCIÓN PARA INPUTS DE FECHA/HORA EN MÓVIL ===== */
+@media (max-width: 600px) {
+    input[type="date"], 
+    input[type="time"] {
+        color: #2d3e50 !important;           /* Texto oscuro visible */
+        background-color: #ffffff !important; /* Fondo blanco */
+        border: 2px solid #cad1d9 !important;
+    }
+
+    /* Para cuando el campo está vacío, el texto por defecto (placeholder) */
+    input[type="date"]:invalid,
+    input[type="time"]:invalid {
+        color: #6c757d !important;           /* Gris medio */
+    }
+
+    /* En tema oscuro */
+    body.dark-theme input[type="date"],
+    body.dark-theme input[type="time"] {
+        color: #ffffff !important;
+        background-color: #2a3649 !important;
+        border-color: #4a6070 !important;
+    }
+
+    body.dark-theme input[type="date"]:invalid,
+    body.dark-theme input[type="time"]:invalid {
+        color: #a0b0c0 !important;
+    }
+}
