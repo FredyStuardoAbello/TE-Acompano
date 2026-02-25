@@ -105,3 +105,4 @@ const TareasModule = (() => {
     };
     return { render };
 })();
+
