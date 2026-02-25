@@ -156,12 +156,12 @@ input, textarea {
     width: 100%;
     padding: 14px;
     margin-bottom: 18px;
-    border: 2px solid var(--color-borde);     /* Borde más grueso */
+    border: 2px solid var(--color-borde);
     border-radius: 8px;
-    background-color: #ffffff;                /* Fondo blanco puro */
+    background-color: #ffffff;
     color: var(--color-texto);
     transition: all 0.2s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02); /* Sombra interior */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 input:focus, textarea:focus {
@@ -190,7 +190,27 @@ button:hover {
     background-color: var(--color-boton-hover);
 }
 
-/* ===== MÓDULO RUTINAS ===== */
+/* ===== MÓDULO RUTINAS (MEJORADO) ===== */
+#nuevaRutina,
+#nuevaRutinaFecha,
+#nuevaRutinaHora {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: var(--color-texto);
+    font-size: 16px;
+}
+
+#nuevaRutina::placeholder,
+#nuevaRutinaFecha::placeholder,
+#nuevaRutinaHora::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
 #listaRutinas {
     list-style: none;
     margin-top: 20px;
@@ -203,29 +223,30 @@ button:hover {
     border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    justify-content: space-between;
     border-left: 4px solid var(--color-acento);
-    flex-wrap: wrap;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
 #listaRutinas li span {
-    flex: 1;
-    word-break: break-word;
     font-size: 1.1rem;
     color: var(--color-texto);
+    word-break: break-word;
+    flex: 1;
+    margin-right: 10px;
 }
 
 #listaRutinas li button {
-    margin-left: auto;
     background-color: #d32f2f;
     color: white;
     padding: 8px 16px;
     min-height: 38px;
     font-size: 0.9rem;
-    border: none;
     border-radius: 20px;
+    border: none;
     cursor: pointer;
+    white-space: nowrap;
+    margin-left: auto;
 }
 
 #listaRutinas li button:hover {
@@ -621,7 +642,6 @@ body.dark-theme label {
     color: var(--color-texto);
 }
 
-/* Inputs en tema oscuro */
 body.dark-theme input,
 body.dark-theme textarea {
     background-color: #2a3649;
@@ -635,6 +655,29 @@ body.dark-theme textarea:focus {
     border-color: var(--color-boton);
     box-shadow: 0 0 0 3px rgba(58, 124, 165, 0.3), inset 0 2px 4px rgba(0,0,0,0.3);
     background-color: #2a3649;
+}
+
+body.dark-theme #nuevaRutina,
+body.dark-theme #nuevaRutinaFecha,
+body.dark-theme #nuevaRutinaHora {
+    background-color: #2a3649;
+    border-color: #4a6070;
+    color: #ffffff;
+}
+
+body.dark-theme #nuevaRutina::placeholder,
+body.dark-theme #nuevaRutinaFecha::placeholder,
+body.dark-theme #nuevaRutinaHora::placeholder {
+    color: #a0b0c0;
+}
+
+body.dark-theme #listaRutinas li {
+    background-color: #2a3649;
+    border-left-color: var(--color-acento);
+}
+
+body.dark-theme #listaRutinas li span {
+    color: #ffffff;
 }
 
 body.dark-theme .tarea,
@@ -692,7 +735,7 @@ body.dark-theme footer {
     border-top-color: var(--color-borde);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE UNIFICADO (móviles) ===== */
 @media (max-width: 600px) {
     body {
         padding: 12px;
@@ -718,6 +761,7 @@ body.dark-theme footer {
         flex: 1 1 100%;
     }
 
+    /* Rutinas en móvil */
     #listaRutinas li {
         flex-direction: column;
         align-items: flex-start;
@@ -726,8 +770,11 @@ body.dark-theme footer {
     #listaRutinas li button {
         width: 100%;
         margin-left: 0;
+        margin-top: 8px;
+        text-align: center;
     }
 
+    /* Tareas en móvil */
     .tarea li {
         flex-direction: column;
         align-items: flex-start;
@@ -738,6 +785,7 @@ body.dark-theme footer {
         margin: 5px 0;
     }
 
+    /* Onboarding */
     .onboarding-buttons,
     .tour-buttons {
         flex-direction: column;
@@ -751,41 +799,5 @@ body.dark-theme footer {
     footer {
         padding: 10px;
         font-size: 0.8rem;
-    }
-}
-
-
-
-
-
-/* ===== CORRECCIONES PARA MÓVIL (INPUTS VISIBLES) ===== */
-@media (max-width: 600px) {
-    /* Asegurar que los inputs tengan texto oscuro sobre fondo claro */
-    input, textarea {
-        color: #2d3e50 !important;           /* Color oscuro para el texto */
-        background-color: #ffffff !important; /* Fondo blanco */
-        border: 2px solid #cad1d9 !important;
-    }
-
-    /* Forzar que los placeholders se vean */
-    input::placeholder, textarea::placeholder {
-        color: #6c757d !important;           /* Gris medio para placeholder */
-        opacity: 1 !important;
-    }
-
-    /* Para los campos de fecha y hora, que tienen un valor por defecto */
-    input[type="date"], input[type="time"] {
-        color: #2d3e50 !important;
-    }
-
-    /* En tema oscuro, aseguramos contraste */
-    body.dark-theme input, body.dark-theme textarea {
-        color: #ffffff !important;
-        background-color: #2a3649 !important;
-        border-color: #4a6070 !important;
-    }
-
-    body.dark-theme input::placeholder, body.dark-theme textarea::placeholder {
-        color: #a0b0c0 !important;
     }
 }
