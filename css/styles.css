@@ -840,3 +840,27 @@ body.dark-theme footer {
         font-size: 0.8rem;
     }
 }
+
+
+
+
+
+
+/* ===== CORRECCIÓN FINAL PARA RUTINAS (MODO OSCURO) ===== */
+/* Aseguramos que el fondo del item sea oscuro */
+body.dark-theme #listaRutinas li {
+    background-color: #2a3649 !important;
+}
+
+/* El texto principal de la rutina debe ser blanco */
+body.dark-theme #listaRutinas li span,
+body.dark-theme #listaRutinas li div,
+body.dark-theme #listaRutinas li {
+    color: #ffffff !important;
+}
+
+/* Si hay algún texto secundario (como fechas) que deba tener otro color, lo ajustamos */
+body.dark-theme #listaRutinas li small,
+body.dark-theme #listaRutinas li .fecha {
+    color: #c0d8f0 !important; /* Un azul claro visible */
+}
