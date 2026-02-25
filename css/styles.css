@@ -2,9 +2,9 @@
 :root {
     --color-fondo: #eef2f5;
     --color-encabezado: #1e3a5f;
-    --color-boton: #2c5f8a;
+    --color-boton: #2c5f8a;          /* Azul para acciones */
     --color-boton-hover: #1f4a6f;
-    --color-acento: #2e7d6e;
+    --color-acento: #2e7d6e;          /* Verde (se mantiene para acentos, pero no para botones) */
     --color-texto: #2d3e50;
     --color-borde: #cad1d9;
     --color-tarjeta: #ffffff;
@@ -107,7 +107,6 @@ nav button:hover {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* ===== BOTÓN ACTIVO ===== */
 nav button.active {
     background-color: var(--color-acento);
     color: white;
@@ -146,7 +145,7 @@ h3 {
     opacity: 0.9;
 }
 
-/* ===== FORMULARIOS MEJORADOS ===== */
+/* ===== FORMULARIOS Y BOTONES ===== */
 input, textarea, button {
     font-family: inherit;
     font-size: 16px;
@@ -171,12 +170,8 @@ input:focus, textarea:focus {
     background-color: #ffffff;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #6c757d;
-    opacity: 1;
-}
-
-button {
+/* Botones de acción: azules */
+button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-historial):not(#borrarTodosPlanes) {
     background-color: var(--color-boton);
     color: white;
     border: none;
@@ -188,56 +183,30 @@ button {
     margin-bottom: 6px;
     min-height: 46px;
     font-weight: 500;
-    font-size: 1rem;
 }
 
-button:hover {
+button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-historial):not(#borrarTodosPlanes):hover {
     background-color: var(--color-boton-hover);
 }
 
+/* Botones de eliminar: rojos */
+.eliminar, .eliminarTarea, .eliminar-plan, #btn-borrar-historial, #borrarTodosPlanes {
+    background-color: #d32f2f !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 8px 16px !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+    min-height: 38px !important;
+}
+
+.eliminar:hover, .eliminarTarea:hover, .eliminar-plan:hover,
+#btn-borrar-historial:hover, #borrarTodosPlanes:hover {
+    background-color: #b71c1c !important;
+}
+
 /* ===== MÓDULO RUTINAS ===== */
-#listaRutinas {
-    list-style: none;
-    margin-top: 20px;
-}
-
-#listaRutinas li {
-    background-color: #f9fbfd;
-    margin-bottom: 12px;
-    padding: 16px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-left: 4px solid var(--color-acento);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-}
-
-#listaRutinas li span {
-    flex: 1;
-    word-break: break-word;
-    font-size: 1.1rem;
-    color: var(--color-texto);
-    margin-right: 10px;
-}
-
-#listaRutinas li button {
-    background-color: #d32f2f;
-    color: white;
-    padding: 8px 16px;
-    min-height: 38px;
-    font-size: 0.9rem;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-#listaRutinas li button:hover {
-    background-color: #b71c1c;
-}
-
-/* Estilos para los inputs de rutinas */
 #nuevaRutina,
 #nuevaRutinaFecha,
 #nuevaRutinaHora {
@@ -258,6 +227,33 @@ button:hover {
     color: #6c757d;
     opacity: 1;
 }
+
+#listaRutinas {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#listaRutinas li {
+    background-color: #f9fbfd;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 4px solid var(--color-acento);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+#listaRutinas li span {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    word-break: break-word;
+    margin-right: 10px;
+}
+
+/* Botón eliminar en rutinas ya es rojo por la clase .eliminar */
 
 /* ===== MÓDULO TAREAS ===== */
 .tarea {
@@ -297,30 +293,18 @@ button:hover {
     accent-color: var(--color-acento);
 }
 
+/* Botón agregar paso (azul) - usamos variable de botón */
 .tarea .agregarPaso {
-    background-color: var(--color-acento);
+    background-color: var(--color-boton) !important;
     color: white;
+    border: none;
     border-radius: 20px;
     padding: 6px 12px;
-    border: none;
-    cursor: pointer;
-}
-
-.tarea .eliminarTarea {
-    background-color: #d32f2f;
-    color: white;
-    border-radius: 20px;
-    padding: 6px 12px;
-    border: none;
     cursor: pointer;
 }
 
 .tarea .agregarPaso:hover {
-    background-color: #1f5f55;
-}
-
-.tarea .eliminarTarea:hover {
-    background-color: #b71c1c;
+    background-color: var(--color-boton-hover) !important;
 }
 
 /* ===== MÓDULO EMOCIONES ===== */
@@ -385,19 +369,7 @@ button:hover {
     top: -2px;
 }
 
-#btn-borrar-historial {
-    margin-top: 10px;
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-#btn-borrar-historial:hover {
-    background-color: #b71c1c;
-}
+/* Botón registrar emoción (azul por defecto) y borrar historial (rojo) ya está definido */
 
 /* ===== MÓDULO CAMBIOS ===== */
 .cambios-form {
@@ -430,6 +402,9 @@ button:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     font-size: 1.1rem;
     color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #planesGuardados li strong {
@@ -437,19 +412,7 @@ button:hover {
     font-weight: 600;
 }
 
-.eliminar-plan, #borrarTodosPlanes {
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 12px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.eliminar-plan:hover, #borrarTodosPlanes:hover {
-    background-color: #b71c1c;
-}
+/* Botones eliminar en cambios ya son rojos por las clases .eliminar-plan y #borrarTodosPlanes */
 
 /* ===== ONBOARDING ===== */
 .onboarding-overlay {
@@ -600,7 +563,7 @@ footer {
 body.dark-theme {
     --color-fondo: #0f172a;
     --color-encabezado: #0b1c2f;
-    --color-boton: #3a7ca5;
+    --color-boton: #3a7ca5;          /* Azul más brillante */
     --color-boton-hover: #4f8fc0;
     --color-acento: #6bb0a8;
     --color-texto: #ffffff;
@@ -668,15 +631,21 @@ body.dark-theme #nuevaRutinaHora::placeholder {
     color: #a0b0c0;
 }
 
-body.dark-theme input:focus,
-body.dark-theme textarea:focus {
-    border-color: var(--color-boton);
-    box-shadow: 0 0 0 3px rgba(58, 124, 165, 0.3), inset 0 2px 4px rgba(0,0,0,0.3);
+/* Elementos de lista en tema oscuro */
+body.dark-theme #listaRutinas li {
+    background-color: #2a3649;
+    border-left-color: #6bb0a8;
+    color: #ffffff;
 }
 
-/* ===== CONTENEDORES EN TEMA OSCURO ===== */
+body.dark-theme #listaRutinas li span,
+body.dark-theme #listaRutinas li div,
+body.dark-theme #listaRutinas li p,
+body.dark-theme #listaRutinas li strong {
+    color: #ffffff;
+}
+
 body.dark-theme .tarea,
-body.dark-theme #listaRutinas li,
 body.dark-theme #estrategias,
 body.dark-theme #historial,
 body.dark-theme .cambios-form,
@@ -685,41 +654,70 @@ body.dark-theme .onboarding-card,
 body.dark-theme .onboarding-tour,
 body.dark-theme .onboarding-tour li {
     background-color: #2a3649;
-    color: #ffffff; /* Cambiar a negro si prefieres, pero blanco es estándar */
+    color: #ffffff;
     border-color: var(--color-borde);
 }
 
-/* CORRECCIÓN PARA RUTINAS EN MODO OSCURO (texto negro sobre fondo oscuro) */
-body.dark-theme #listaRutinas li {
-    background-color: #2a3649 !important;
-    color: #ffffff !important; /* Texto blanco (legible) */
+body.dark-theme .onboarding-card h2,
+body.dark-theme .onboarding-tour h3 {
+    color: #c0d8f0;
 }
 
-body.dark-theme #listaRutinas li span,
-body.dark-theme #listaRutinas li div,
-body.dark-theme #listaRutinas li p {
-    color: #ffffff !important; /* Aseguramos que el texto sea blanco */
+body.dark-theme .btn-secondary {
+    color: #c0d8f0;
+    border-color: #4a6070 !important;
 }
 
-/* Botón eliminar en modo oscuro */
-body.dark-theme #listaRutinas li button,
-body.dark-theme .tarea .eliminarTarea,
-body.dark-theme .eliminar-plan,
-body.dark-theme #btn-borrar-historial,
-body.dark-theme #borrarTodosPlanes {
-    background-color: #b71c1c;
+body.dark-theme .btn-secondary:hover {
+    background-color: #2a4055;
+}
+
+body.dark-theme .emocion-btn {
+    background-color: #2a3b4e;
+    color: #ffffff;
+    border-color: #4a6070;
+}
+
+body.dark-theme .emocion-btn:hover {
+    background-color: var(--color-boton);
+    color: #ffffff;
+}
+
+/* Botones en tema oscuro (azules) */
+body.dark-theme button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-historial):not(#borrarTodosPlanes) {
+    background-color: var(--color-boton);
     color: white;
 }
 
-body.dark-theme #listaRutinas li button:hover,
-body.dark-theme .tarea .eliminarTarea:hover,
+body.dark-theme button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-historial):not(#borrarTodosPlanes):hover {
+    background-color: var(--color-boton-hover);
+}
+
+/* Botones rojos en tema oscuro */
+body.dark-theme .eliminar,
+body.dark-theme .eliminarTarea,
+body.dark-theme .eliminar-plan,
+body.dark-theme #btn-borrar-historial,
+body.dark-theme #borrarTodosPlanes {
+    background-color: #b71c1c !important;
+    color: white !important;
+}
+
+body.dark-theme .eliminar:hover,
+body.dark-theme .eliminarTarea:hover,
 body.dark-theme .eliminar-plan:hover,
 body.dark-theme #btn-borrar-historial:hover,
 body.dark-theme #borrarTodosPlanes:hover {
-    background-color: #8a1414;
+    background-color: #8a1414 !important;
 }
 
-/* ===== RESPONSIVE UNIFICADO ===== */
+body.dark-theme footer {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    border-top-color: var(--color-borde);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
     body {
         padding: 12px;
@@ -745,7 +743,6 @@ body.dark-theme #borrarTodosPlanes:hover {
         flex: 1 1 100%;
     }
 
-    /* Ajustes para rutinas en móvil */
     #listaRutinas li {
         flex-direction: column;
         align-items: flex-start;
