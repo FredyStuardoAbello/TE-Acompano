@@ -4,7 +4,7 @@
     --color-encabezado: #1e3a5f;
     --color-boton: #2c5f8a;          /* Azul para acciones */
     --color-boton-hover: #1f4a6f;
-    --color-acento: #2e7d6e;          /* Verde (se mantiene para acentos, pero no para botones) */
+    --color-acento: #2e7d6e;          /* Verde (se mantiene para acentos) */
     --color-texto: #2d3e50;
     --color-borde: #cad1d9;
     --color-tarjeta: #ffffff;
@@ -253,8 +253,6 @@ button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-hi
     margin-right: 10px;
 }
 
-/* Botón eliminar en rutinas ya es rojo por la clase .eliminar */
-
 /* ===== MÓDULO TAREAS ===== */
 .tarea {
     background-color: #f9fbfd;
@@ -293,7 +291,6 @@ button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-hi
     accent-color: var(--color-acento);
 }
 
-/* Botón agregar paso (azul) - usamos variable de botón */
 .tarea .agregarPaso {
     background-color: var(--color-boton) !important;
     color: white;
@@ -369,7 +366,57 @@ button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-hi
     top: -2px;
 }
 
-/* Botón registrar emoción (azul por defecto) y borrar historial (rojo) ya está definido */
+/* ===== BOTONES DE EMOCIONES CON COLORES REPRESENTATIVOS ===== */
+.emocion-btn[data-emocion="tranquilo"] {
+    background-color: #A5D6A5 !important; /* Verde claro */
+    color: #2d3e50 !important;
+    border-color: #81A481 !important;
+}
+
+.emocion-btn[data-emocion="contento"] {
+    background-color: #FFE082 !important; /* Amarillo suave */
+    color: #2d3e50 !important;
+    border-color: #D4A959 !important;
+}
+
+.emocion-btn[data-emocion="neutral"] {
+    background-color: #E0E0E0 !important; /* Gris claro */
+    color: #2d3e50 !important;
+    border-color: #BDBDBD !important;
+}
+
+.emocion-btn[data-emocion="ansioso"] {
+    background-color: #FFAB91 !important; /* Naranja suave */
+    color: #2d3e50 !important;
+    border-color: #D48A6F !important;
+}
+
+.emocion-btn[data-emocion="abrumado"] {
+    background-color: #EF9A9A !important; /* Rojo claro */
+    color: #2d3e50 !important;
+    border-color: #C57F7F !important;
+}
+
+/* Hover: un poco más oscuros para feedback */
+.emocion-btn[data-emocion="tranquilo"]:hover {
+    background-color: #8FBC8F !important;
+}
+
+.emocion-btn[data-emocion="contento"]:hover {
+    background-color: #FFD54F !important;
+}
+
+.emocion-btn[data-emocion="neutral"]:hover {
+    background-color: #C0C0C0 !important;
+}
+
+.emocion-btn[data-emocion="ansioso"]:hover {
+    background-color: #FF8A65 !important;
+}
+
+.emocion-btn[data-emocion="abrumado"]:hover {
+    background-color: #E57373 !important;
+}
 
 /* ===== MÓDULO CAMBIOS ===== */
 .cambios-form {
@@ -411,8 +458,6 @@ button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-hi
     color: var(--color-encabezado);
     font-weight: 600;
 }
-
-/* Botones eliminar en cambios ya son rojos por las clases .eliminar-plan y #borrarTodosPlanes */
 
 /* ===== ONBOARDING ===== */
 .onboarding-overlay {
@@ -711,6 +756,23 @@ body.dark-theme #borrarTodosPlanes:hover {
     background-color: #8a1414 !important;
 }
 
+/* Ajustes para botones de emociones en tema oscuro */
+body.dark-theme .emocion-btn[data-emocion="tranquilo"],
+body.dark-theme .emocion-btn[data-emocion="contento"],
+body.dark-theme .emocion-btn[data-emocion="neutral"],
+body.dark-theme .emocion-btn[data-emocion="ansioso"],
+body.dark-theme .emocion-btn[data-emocion="abrumado"] {
+    color: #1e1e1e !important; /* Texto oscuro sobre fondos claros */
+}
+
+body.dark-theme .emocion-btn[data-emocion="tranquilo"]:hover,
+body.dark-theme .emocion-btn[data-emocion="contento"]:hover,
+body.dark-theme .emocion-btn[data-emocion="neutral"]:hover,
+body.dark-theme .emocion-btn[data-emocion="ansioso"]:hover,
+body.dark-theme .emocion-btn[data-emocion="abrumado"]:hover {
+    filter: brightness(0.9);
+}
+
 body.dark-theme footer {
     background-color: var(--color-tarjeta);
     color: var(--color-texto);
@@ -755,7 +817,6 @@ body.dark-theme footer {
         text-align: center;
     }
 
-    /* Ajustes para tareas en móvil */
     .tarea li {
         flex-direction: column;
         align-items: flex-start;
