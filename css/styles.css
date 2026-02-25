@@ -753,3 +753,39 @@ body.dark-theme footer {
         font-size: 0.8rem;
     }
 }
+
+
+
+
+
+/* ===== CORRECCIONES PARA MÓVIL (INPUTS VISIBLES) ===== */
+@media (max-width: 600px) {
+    /* Asegurar que los inputs tengan texto oscuro sobre fondo claro */
+    input, textarea {
+        color: #2d3e50 !important;           /* Color oscuro para el texto */
+        background-color: #ffffff !important; /* Fondo blanco */
+        border: 2px solid #cad1d9 !important;
+    }
+
+    /* Forzar que los placeholders se vean */
+    input::placeholder, textarea::placeholder {
+        color: #6c757d !important;           /* Gris medio para placeholder */
+        opacity: 1 !important;
+    }
+
+    /* Para los campos de fecha y hora, que tienen un valor por defecto */
+    input[type="date"], input[type="time"] {
+        color: #2d3e50 !important;
+    }
+
+    /* En tema oscuro, aseguramos contraste */
+    body.dark-theme input, body.dark-theme textarea {
+        color: #ffffff !important;
+        background-color: #2a3649 !important;
+        border-color: #4a6070 !important;
+    }
+
+    body.dark-theme input::placeholder, body.dark-theme textarea::placeholder {
+        color: #a0b0c0 !important;
+    }
+}
