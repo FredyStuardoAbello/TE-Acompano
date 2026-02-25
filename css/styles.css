@@ -190,20 +190,23 @@ button:hover {
     background-color: var(--color-boton-hover);
 }
 
-/* ===== MÓDULO RUTINAS (MEJORADO) ===== */
+/* ===== MÓDULO RUTINAS - CORREGIDO ===== */
+/* Inputs del formulario de rutinas */
 #nuevaRutina,
 #nuevaRutinaFecha,
 #nuevaRutinaHora {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
-    border: 2px solid var(--color-borde);
+    border: 2px solid var(--color-borde, #cad1d9);
     border-radius: 8px;
     background-color: #ffffff;
-    color: var(--color-texto);
+    color: #2d3e50; /* Color oscuro fijo */
     font-size: 16px;
+    box-sizing: border-box;
 }
 
+/* Placeholders visibles */
 #nuevaRutina::placeholder,
 #nuevaRutinaFecha::placeholder,
 #nuevaRutinaHora::placeholder {
@@ -211,8 +214,10 @@ button:hover {
     opacity: 1;
 }
 
+/* Lista de rutinas */
 #listaRutinas {
     list-style: none;
+    padding: 0;
     margin-top: 20px;
 }
 
@@ -224,15 +229,15 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-left: 4px solid var(--color-acento);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    border-left: 4px solid var(--color-acento, #2e7d6e);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 #listaRutinas li span {
-    font-size: 1.1rem;
-    color: var(--color-texto);
-    word-break: break-word;
     flex: 1;
+    word-break: break-word;
+    font-size: 1.1rem;
+    color: #2d3e50;
     margin-right: 10px;
 }
 
@@ -246,7 +251,7 @@ button:hover {
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    margin-left: auto;
+    margin-left: auto; /* Alinea el botón a la derecha */
 }
 
 #listaRutinas li button:hover {
@@ -260,7 +265,7 @@ button:hover {
     padding: 18px;
     border-radius: 12px;
     border-left: 4px solid var(--color-acento);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .tarea h3 {
@@ -336,7 +341,7 @@ button:hover {
     transition: all 0.2s;
     min-height: 70px;
     border-radius: 40px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     cursor: pointer;
 }
 
@@ -345,7 +350,7 @@ button:hover {
     color: white;
     border-color: var(--color-boton);
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 #estrategias, #historial {
@@ -354,7 +359,7 @@ button:hover {
     background-color: #f9fbfd;
     border-radius: 12px;
     border: 1px solid var(--color-borde);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 #estrategias ul, #historial ul {
@@ -400,7 +405,7 @@ button:hover {
     border-radius: 16px;
     margin-bottom: 20px;
     border: 1px solid var(--color-borde);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .cambios-form label {
@@ -421,7 +426,7 @@ button:hover {
     padding: 16px;
     border-radius: 12px;
     border-left: 4px solid var(--color-boton);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     font-size: 1.1rem;
     color: var(--color-texto);
 }
@@ -467,7 +472,7 @@ button:hover {
     max-width: 500px;
     width: 90%;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     animation: slideUp 0.4s ease;
 }
 
@@ -526,7 +531,7 @@ button:hover {
     padding: 1.5rem;
     max-width: 500px;
     width: 90%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .onboarding-tour h3 {
@@ -642,6 +647,7 @@ body.dark-theme label {
     color: var(--color-texto);
 }
 
+/* Inputs en tema oscuro */
 body.dark-theme input,
 body.dark-theme textarea {
     background-color: #2a3649;
@@ -657,6 +663,7 @@ body.dark-theme textarea:focus {
     background-color: #2a3649;
 }
 
+/* Estilos específicos para rutinas en tema oscuro */
 body.dark-theme #nuevaRutina,
 body.dark-theme #nuevaRutinaFecha,
 body.dark-theme #nuevaRutinaHora {
@@ -673,15 +680,19 @@ body.dark-theme #nuevaRutinaHora::placeholder {
 
 body.dark-theme #listaRutinas li {
     background-color: #2a3649;
-    border-left-color: var(--color-acento);
+    border-left-color: #6bb0a8;
 }
 
 body.dark-theme #listaRutinas li span {
     color: #ffffff;
 }
 
+body.dark-theme #listaRutinas li button {
+    background-color: #b71c1c;
+}
+
+/* Otros elementos en tema oscuro */
 body.dark-theme .tarea,
-body.dark-theme #listaRutinas li,
 body.dark-theme #estrategias,
 body.dark-theme #historial,
 body.dark-theme .cambios-form,
@@ -721,7 +732,6 @@ body.dark-theme .emocion-btn:hover {
 
 body.dark-theme .tarea .agregarPaso,
 body.dark-theme .tarea .eliminarTarea,
-body.dark-theme #listaRutinas li button,
 body.dark-theme .eliminar-plan,
 body.dark-theme #btn-borrar-historial,
 body.dark-theme #borrarTodosPlanes {
@@ -735,7 +745,7 @@ body.dark-theme footer {
     border-top-color: var(--color-borde);
 }
 
-/* ===== RESPONSIVE UNIFICADO (móviles) ===== */
+/* ===== RESPONSIVE UNIFICADO ===== */
 @media (max-width: 600px) {
     body {
         padding: 12px;
@@ -761,7 +771,7 @@ body.dark-theme footer {
         flex: 1 1 100%;
     }
 
-    /* Rutinas en móvil */
+    /* Ajustes para rutinas en móvil */
     #listaRutinas li {
         flex-direction: column;
         align-items: flex-start;
@@ -774,7 +784,37 @@ body.dark-theme footer {
         text-align: center;
     }
 
-    /* Tareas en móvil */
+    /* Asegurar inputs legibles en móvil */
+    #nuevaRutina,
+    #nuevaRutinaFecha,
+    #nuevaRutinaHora {
+        color: #2d3e50 !important;
+        background-color: #ffffff !important;
+        border: 2px solid #cad1d9 !important;
+    }
+
+    #nuevaRutina::placeholder,
+    #nuevaRutinaFecha::placeholder,
+    #nuevaRutinaHora::placeholder {
+        color: #6c757d !important;
+        opacity: 1 !important;
+    }
+
+    body.dark-theme #nuevaRutina,
+    body.dark-theme #nuevaRutinaFecha,
+    body.dark-theme #nuevaRutinaHora {
+        color: #ffffff !important;
+        background-color: #2a3649 !important;
+        border-color: #4a6070 !important;
+    }
+
+    body.dark-theme #nuevaRutina::placeholder,
+    body.dark-theme #nuevaRutinaFecha::placeholder,
+    body.dark-theme #nuevaRutinaHora::placeholder {
+        color: #a0b0c0 !important;
+    }
+
+    /* Ajustes para tareas en móvil */
     .tarea li {
         flex-direction: column;
         align-items: flex-start;
@@ -785,7 +825,6 @@ body.dark-theme footer {
         margin: 5px 0;
     }
 
-    /* Onboarding */
     .onboarding-buttons,
     .tour-buttons {
         flex-direction: column;
