@@ -872,3 +872,20 @@ body.dark-theme footer {
         color: #a0b0c0 !important;
     }
 }
+
+
+
+
+/* Estilo para etiquetas de campos de fecha/hora */
+label[for^="nueva"] {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    color: var(--color-texto);
+    opacity: 0.8;
+    display: block;
+}
+
+/* Ajuste en tema oscuro */
+body.dark-theme label[for^="nueva"] {
+    color: var(--color-texto);
+}
