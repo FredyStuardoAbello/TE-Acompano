@@ -1,5 +1,5 @@
 const DataManager = (() => {
-    const STORAGE_KEY = 'teaSupportApp_data';
+    const STORAGE_KEY = 'TEAcompano_data';
     
     const guardarEstado = (estadoApp) => {
         try {
@@ -27,4 +27,5 @@ const DataManager = (() => {
     };
     
     return { guardarEstado, cargarEstado };
+
 })();
