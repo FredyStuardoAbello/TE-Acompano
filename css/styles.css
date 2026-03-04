@@ -368,31 +368,31 @@ button:not(.eliminar):not(.eliminarTarea):not(.eliminar-plan):not(#btn-borrar-hi
 
 /* ===== BOTONES DE EMOCIONES CON COLORES REPRESENTATIVOS ===== */
 .emocion-btn[data-emocion="tranquilo"] {
-    background-color: #A5D6A5 !important; /* Verde claro */
+    background-color: #A5D6A5 !important;
     color: #2d3e50 !important;
     border-color: #81A481 !important;
 }
 
 .emocion-btn[data-emocion="contento"] {
-    background-color: #FFE082 !important; /* Amarillo suave */
+    background-color: #FFE082 !important;
     color: #2d3e50 !important;
     border-color: #D4A959 !important;
 }
 
 .emocion-btn[data-emocion="neutral"] {
-    background-color: #E0E0E0 !important; /* Gris claro */
+    background-color: #E0E0E0 !important;
     color: #2d3e50 !important;
     border-color: #BDBDBD !important;
 }
 
 .emocion-btn[data-emocion="ansioso"] {
-    background-color: #FFAB91 !important; /* Naranja suave */
+    background-color: #FFAB91 !important;
     color: #2d3e50 !important;
     border-color: #D48A6F !important;
 }
 
 .emocion-btn[data-emocion="abrumado"] {
-    background-color: #EF9A9A !important; /* Rojo claro */
+    background-color: #EF9A9A !important;
     color: #2d3e50 !important;
     border-color: #C57F7F !important;
 }
@@ -608,7 +608,7 @@ footer {
 body.dark-theme {
     --color-fondo: #0f172a;
     --color-encabezado: #0b1c2f;
-    --color-boton: #3a7ca5;          /* Azul más brillante */
+    --color-boton: #3a7ca5;
     --color-boton-hover: #4f8fc0;
     --color-acento: #6bb0a8;
     --color-texto: #ffffff;
@@ -762,7 +762,7 @@ body.dark-theme .emocion-btn[data-emocion="contento"],
 body.dark-theme .emocion-btn[data-emocion="neutral"],
 body.dark-theme .emocion-btn[data-emocion="ansioso"],
 body.dark-theme .emocion-btn[data-emocion="abrumado"] {
-    color: #1e1e1e !important; /* Texto oscuro sobre fondos claros */
+    color: #1e1e1e !important;
 }
 
 body.dark-theme .emocion-btn[data-emocion="tranquilo"]:hover,
@@ -779,87 +779,165 @@ body.dark-theme footer {
     border-top-color: var(--color-borde);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== Estilo para etiquetas de campos de fecha/hora ===== */
+label[for^="nueva"] {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    color: var(--color-texto);
+    opacity: 0.8;
+    display: block;
+}
+
+body.dark-theme label[for^="nueva"] {
+    color: var(--color-texto);
+}
+
+/* ===== RESPONSIVE MEJORADO PARA MÓVILES ===== */
 @media (max-width: 600px) {
     body {
-        padding: 12px;
+        padding: 8px;
+        min-height: 100vh;
+        justify-content: flex-start;
+    }
+
+    header {
+        padding: 0.8rem;
     }
 
     .header-top {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
+        margin-bottom: 0.3rem;
+    }
+
+    .header-top h1 {
+        font-size: 1.4rem;
     }
 
     .header-buttons {
-        justify-content: center;
+        gap: 5px;
+    }
+
+    .btn-header {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+
+    nav {
+        gap: 5px;
     }
 
     nav button {
         width: 100%;
-        padding: 14px;
-        font-size: 1.1rem;
+        padding: 8px 10px;
+        font-size: 0.9rem;
+        min-width: auto;
     }
 
-    .emocion-btn {
-        flex: 1 1 100%;
+    main {
+        padding: 12px;
+        margin-top: 5px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin: 10px 0 8px;
+    }
+
+    input, textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        min-height: 38px;
+        font-size: 0.9rem;
     }
 
     #listaRutinas li {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 10px;
+        margin-bottom: 8px;
     }
 
-    #listaRutinas li button {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 8px;
-        text-align: center;
+    #listaRutinas li span {
+        font-size: 0.95rem;
+    }
+
+    .tarea {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .tarea h3 {
+        font-size: 1.2rem;
     }
 
     .tarea li {
-        flex-direction: column;
-        align-items: flex-start;
+        font-size: 0.95rem;
+        padding: 5px 0;
     }
 
-    .tarea button {
-        width: 100%;
-        margin: 5px 0;
+    .tarea li input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
     }
 
-    .onboarding-buttons,
-    .tour-buttons {
-        flex-direction: column;
+    .emocion-btn {
+        flex: 1 1 120px;
+        padding: 12px 5px;
+        font-size: 0.9rem;
+        min-height: 60px;
     }
 
-    .onboarding-buttons button,
-    .tour-buttons button {
-        width: 100%;
+    #estrategias, #historial {
+        padding: 12px;
+        margin-top: 15px;
+    }
+
+    .cambios-form {
+        padding: 15px;
+    }
+
+    .cambios-form label {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    #planesGuardados li {
+        padding: 12px;
+        font-size: 0.95rem;
     }
 
     footer {
-        padding: 10px;
-        font-size: 0.8rem;
+        padding: 8px;
+        font-size: 0.7rem;
+        margin-top: 10px;
     }
-}
 
+    footer p:last-child {
+        font-size: 0.6rem;
+        margin-top: 3px;
+    }
 
-/* ===== CORRECCIÓN PARA INPUTS DE FECHA/HORA EN MÓVIL ===== */
-@media (max-width: 600px) {
+    /* Corrección para inputs de fecha/hora en móvil */
     input[type="date"], 
     input[type="time"] {
-        color: #2d3e50 !important;           /* Texto oscuro visible */
-        background-color: #ffffff !important; /* Fondo blanco */
+        color: #2d3e50 !important;
+        background-color: #ffffff !important;
         border: 2px solid #cad1d9 !important;
     }
 
-    /* Para cuando el campo está vacío, el texto por defecto (placeholder) */
     input[type="date"]:invalid,
     input[type="time"]:invalid {
-        color: #6c757d !important;           /* Gris medio */
+        color: #6c757d !important;
     }
 
-    /* En tema oscuro */
     body.dark-theme input[type="date"],
     body.dark-theme input[type="time"] {
         color: #ffffff !important;
@@ -871,36 +949,4 @@ body.dark-theme footer {
     body.dark-theme input[type="time"]:invalid {
         color: #a0b0c0 !important;
     }
-}
-
-
-
-
-/* Estilo para etiquetas de campos de fecha/hora */
-label[for^="nueva"] {
-    font-size: 0.8rem;
-    margin-bottom: 4px;
-    color: var(--color-texto);
-    opacity: 0.8;
-    display: block;
-}
-
-/* Ajuste en tema oscuro */
-body.dark-theme label[for^="nueva"] {
-    color: var(--color-texto);
-}
-
-
-/* Estilo para etiquetas de campos de fecha/hora */
-label[for^="nueva"] {
-    font-size: 0.8rem;
-    margin-bottom: 4px;
-    color: var(--color-texto);
-    opacity: 0.8;
-    display: block;
-}
-
-/* Ajuste en tema oscuro */
-body.dark-theme label[for^="nueva"] {
-    color: var(--color-texto);
 }
